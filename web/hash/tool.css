@@ -1,0 +1,47 @@
+/* Estilos de la herramienta. Usan los tokens de color de la página (--card, --line, --text, --muted). */
+.hx-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.hx-muted { color: var(--muted); }
+.hx-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+.hx-card h3 { margin: 0; font-size: 16px; }
+.hx-card p { margin: 6px 0 0; font-size: 14px; line-height: 1.55; }
+.hx-entrada { padding: 10px; box-shadow: 0 20px 40px rgb(0 0 0 / 0.06); }
+.hx-drop { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 44px 20px; border: 2px dashed var(--line);
+  border-radius: 12px; cursor: pointer; text-align: center; color: var(--text); transition: border-color .2s, background .2s; }
+.hx-drop svg { color: #5fb3c4; }
+.hx-drop strong { font-size: 16px; margin-top: 6px; }
+.hx-drop span { font-size: 14px; }
+.hx-drop:hover, .hx-activo { border-color: #5fb3c4; background: rgb(95 179 196 / 0.08); }
+.hx-drop:focus-within { outline: 2px solid #5fb3c4; outline-offset: 2px; }
+.hx-opciones { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px 28px; padding: 16px 10px 4px; align-items: end; }
+.hx-algs { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 14px; font-size: 14px; }
+.hx-algs legend { font-size: 13px; font-weight: 600; margin-bottom: 8px; padding: 0; }
+.hx-algs label { display: flex; align-items: center; gap: 6px; }
+.hx-algs input, .hx-esperado input { accent-color: #2f7f94; }
+.hx-esperado { display: grid; gap: 6px; font-size: 13px; font-weight: 600; min-width: 0; }
+.hx-esperado input { font: 13px var(--font-mono, ui-monospace, monospace); padding: 9px 12px; border-radius: 8px; border: 1px solid var(--line);
+  background: transparent; color: var(--text); width: 100%; box-sizing: border-box; }
+.hx-esperado input:focus { outline: none; border-color: #5fb3c4; box-shadow: 0 0 0 3px rgb(95 179 196 / 0.25); }
+.hx-nota { font-size: 12px; margin: 12px 10px 4px; }
+.hx-resultados { display: grid; gap: 12px; margin-top: 16px; }
+.hx-archivo header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 14px; }
+.hx-nombre { word-break: break-all; }
+.hx-estado { font-size: 13px; font-weight: 600; }
+.hx-ok { color: #3f9b74; }
+.hx-bad { color: #c0504d; }
+.hx-barra { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; margin-top: 12px; }
+.hx-barra span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #5fb3c4, #7c93c9); transition: width .15s; }
+.hx-archivo dl { margin: 12px 0 0; display: grid; gap: 8px; }
+.hx-archivo dl > div { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 12px; align-items: center; padding: 8px 10px;
+  border-radius: 8px; border: 1px solid transparent; }
+.hx-archivo dt { font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--muted); }
+.hx-archivo dd { margin: 0; display: flex; gap: 8px; align-items: center; min-width: 0; }
+.hx-archivo code { flex: 1; min-width: 0; word-break: break-all; font: 13px var(--font-mono, ui-monospace, monospace); }
+.hx-coincide { border-color: #3f9b74 !important; background: rgb(63 155 116 / 0.1); }
+.hx-copiar { flex-shrink: 0; font: 600 12px inherit; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--line);
+  background: transparent; color: var(--text); cursor: pointer; }
+.hx-copiar:hover { border-color: #5fb3c4; }
+.hx-info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+@media (max-width: 720px) {
+  .hx-opciones, .hx-info { grid-template-columns: minmax(0, 1fr); }
+  .hx-archivo dl > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+}

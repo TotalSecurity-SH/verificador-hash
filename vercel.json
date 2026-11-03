@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": "web",
+  "redirects": [{ "source": "/", "destination": "/hash", "permanent": false }],
+  "rewrites": [{ "source": "/hash", "destination": "/hash/index.html" }],
+  "headers": [
+    { "source": "/hash/(.*).wasm", "headers": [{ "key": "Content-Type", "value": "application/wasm" }] },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}

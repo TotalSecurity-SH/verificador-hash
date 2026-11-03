@@ -1,0 +1,5 @@
+tests/run
+tests/*.bin
+tests/out.txt
+.vercel
+.DS_Store

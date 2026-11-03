@@ -1,0 +1,23 @@
+name: Compilar y probar
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar clang y lld
+        run: sudo apt-get update && sudo apt-get install -y clang lld
+      - name: Pruebas nativas (vectores oficiales y sha*sum)
+        run: make test
+      - name: Compilar a WebAssembly
+        run: make wasm
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Probar el WebAssembly contra sha*sum
+        run: make test-wasm

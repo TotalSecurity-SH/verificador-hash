@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Verificador de archivos · Total Security SH</title>
+  <meta name="description" content="Calcula SHA-256, SHA-512, SHA-1 y MD5 de tus archivos en el navegador con WebAssembly y comprueba que no fueron alterados." />
+  <meta name="theme-color" content="#0b1424" />
+  <link rel="stylesheet" href="/hash/brand.css" />
+  <link rel="stylesheet" href="/hash/tool.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="/" class="logo" aria-label="Catálogo de herramientas">
+        <span class="logo-mark">TS</span>
+        <span class="logo-text"><b>Total Security SH</b><span>/herramientas</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Principal">
+        <a href="/" class="todas">Todas las herramientas</a>
+        <a href="https://totalsecuritysh.com" class="cta">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <nav class="ruta" aria-label="Ruta"><a href="/">herramientas</a><span>/</span><b>hash</b></nav>
+      <h1>Comprueba que tus archivos <em>no fueron alterados</em></h1>
+      <p>Calcula SHA-256, SHA-512, SHA-1 y MD5 en tu navegador y compáralos con el hash que publica el proveedor.</p>
+      <div class="chips"><span>Escrito en C</span><span>WebAssembly</span><span>Archivos de cualquier tamaño</span><span>Sin subir archivos</span></div>
+    </div>
+  </section>
+
+  <main class="wrap" id="app">
+    <noscript>Esta herramienta necesita JavaScript para ejecutar WebAssembly.</noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 <a href="https://totalsecuritysh.com"><b>Total Security SH</b></a> · Herramienta gratuita y de código abierto</p>
+      <nav>
+        <a href="https://carlossantiago.totalsecuritysh.com">Hecho por Carlos Santiago</a>
+        <a href="https://github.com/TotalSecurity-SH/verificador-hash">Código en GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { iniciar } from "/hash/app.js";
+    iniciar({ raiz: document.getElementById("app"), cargarWasm: () => fetch("/hash/hash.wasm").then((r) => r.arrayBuffer()) });
+  </script>
+</body>
+</html>
